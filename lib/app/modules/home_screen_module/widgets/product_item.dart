@@ -23,7 +23,7 @@ class ProductItem extends StatelessWidget {
             borderRadius: BorderRadius.circular(30),
           ),
         ),
-        //juangcdnvbnbvfgghgjgh
+        //juangcdnvbnbvfgghgjghxdfgdf
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Row(
