@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_shoes_commerce/app/modules/home_module/widgets/newRichText.dart';
+import 'package:flutter_shoes_commerce/app/data/data_product.dart';
+import 'package:flutter_shoes_commerce/app/modules/home_screen_module/widgets/men_item.dart';
+import 'package:flutter_shoes_commerce/app/modules/home_screen_module/widgets/product_item.dart';
 import 'package:flutter_shoes_commerce/app/theme/app_colors.dart';
 
 import 'package:get/get.dart';
@@ -20,7 +22,7 @@ class HomeScreenPage extends GetView<HomeScreenController> {
           icon: Image.asset(icMenu),
           onPressed: () {},
         ),
-        title: const Text('HomeScreen Page'),
+        // title: const Text('HomeScreen Page'),
         backgroundColor: Colors.white,
         elevation: 0,
         actions: [
@@ -38,7 +40,7 @@ class HomeScreenPage extends GetView<HomeScreenController> {
                   child: Image.asset(imgbanner),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(20),
+                  padding: const EdgeInsets.all(10),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -69,10 +71,45 @@ class HomeScreenPage extends GetView<HomeScreenController> {
             height: 60,
             child: ListView(
               scrollDirection: Axis.horizontal,
-              children: controller.buildCategories(),
+              children: DataProduct.generateProducts()
+                  .map((product) => ProductItem(product: product))
+                  .toList(),
             ),
           ),
+          const SizedBox(height: 10),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 15),
+            child: NewRichtTextScreen(
+              text: 'New Men\'',
+              fontSize: 20,
+              color: Colors.black,
+            ),
+          ),
+          const SizedBox(height: 10),
+          const MenItem()
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: myOrange,
+        onPressed: () {},
+        elevation: 4.0,
+        child: Container(
+          margin: const EdgeInsets.all(15),
+          child: const Icon(
+            Icons.home_outlined,
+            color: Colors.white,
+          ),
+        ),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            IconButton(onPressed: () {}, icon: Image.asset(icShop)),
+            IconButton(onPressed: () {}, icon: Image.asset(icWishlist)),
+            IconButton(onPressed: () {}, icon: Image.asset(icNotif)),
+          ],
+        ),
       ),
     );
   }

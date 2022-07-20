@@ -36,6 +36,7 @@ dependencies:
   cupertino_icons:
   get:
   community_material_icon:
+  imageview360:
 
 dev_dependencies:
   flutter_test:

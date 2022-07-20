@@ -1,3 +1,5 @@
+import '../../app/modules/details_module/details_page.dart';
+import '../../app/modules/details_module/details_bindings.dart';
 import '../../app/modules/home_screen_module/home_screen_page.dart';
 import '../../app/modules/home_screen_module/home_screen_bindings.dart';
 import '../../app/modules/home_module/home_bindings.dart';
@@ -18,6 +20,11 @@ abstract class AppPages {
       page: () => const HomeScreenPage(),
       binding: HomeScreenBinding(),
       transition: Transition.downToUp,
+    ),
+    GetPage(
+      name: Routes.DETAILS,
+      page: () => DetailsPage(),
+      binding: DetailsBinding(),
     ),
   ];
 }

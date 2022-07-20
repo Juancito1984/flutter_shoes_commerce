@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 class NewRichtTextScreen extends StatelessWidget {
   final String text;
   final double fontSize;
+  final Color color;
 
   const NewRichtTextScreen({
     Key? key,
     required this.text,
     this.fontSize = 16,
+    this.color = Colors.white,
   }) : super(key: key);
 
   @override
@@ -17,7 +19,7 @@ class NewRichtTextScreen extends StatelessWidget {
         text: text,
         style: TextStyle(
           fontWeight: FontWeight.bold,
-          color: Colors.white,
+          color: color,
           fontSize: fontSize,
         ),
       ),
